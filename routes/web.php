@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,18 +27,3 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-
-
-Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware('auth', 'role:manager')
-    ->name('dashboard');
-
-Route::get('/resepsionis', [DashboardController::class, 'resepsionis'])
-    ->middleware('auth', 'role:resepsionis')
-    ->name('resepsionis');
-
-require __DIR__.'/auth.php';
-
-
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard.managers');
