@@ -129,48 +129,84 @@ textarea.form-control {
       .site-logo a {
         font-size: 27px; } }
 
-.site-navbar {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99;
-  border: 20px solid transparent;
-  background: #fff;
-  min-height: 300px;
-  overflow-y: scroll; }
-  .site-navbar nav {
-    text-align: left; }
-    .site-navbar nav .menu {
-      font-family: "Playfair Display", times, serif; }
+        .site-navbar {
+          position: fixed;
+          display: none;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 99;
+          border: 10px solid transparent;
+          background: #fff;
+          min-height: 300px;
+          overflow-y: auto;
+          padding: 20px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .site-navbar nav {
+          text-align: left;
+      }
+      .site-navbar nav .menu {
+          font-family: "Playfair Display", times, serif;
+          list-style: none;
+          padding: 0;
+      }
+      .site-navbar nav .menu li {
+          margin: 10px 0;
+      }
       .site-navbar nav .menu li a {
-        color: #000;
-        font-size: 40px;
-        padding: 5px 10px;
-        position: relative; }
-        .site-navbar nav .menu li a:hover:before {
-          width: 100%; }
+          color: #000;
+          font-size: 24px;
+          padding: 10px 15px;
+          position: relative;
+          text-decoration: none;
+          display: inline-block;
+          transition: color 0.3s;
+      }
+      .site-navbar nav .menu li a:hover {
+          color: #ffba5a;
+      }
       .site-navbar nav .menu li.active a {
-        color: #ffba5a; }
-        .site-navbar nav .menu li.active a:before {
-          width: 100%; }
-  .site-navbar .extra-info a {
-    color: #000; }
-  .site-navbar .extra-info ul li a {
-    color: #000; }
-  .site-navbar .extra-info h3 {
-    font-family: "Roboto", arial, sans-serif;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: .2em;
-    color: #adb5bd;
-    margin-bottom: 30px; }
-  .site-navbar .extra-info p {
-    color: #212529; }
-
-.full-height {
+          color: #ffba5a;
+      }
+      .site-navbar .extra-info {
+          margin-top: 20px;
+      }
+      .site-navbar .extra-info a {
+          color: #000;
+          text-decoration: none;
+      }
+      .site-navbar .extra-info ul {
+          list-style: none;
+          padding: 0;
+      }
+      .site-navbar .extra-info ul li {
+          margin: 5px 0;
+      }
+      .site-navbar .extra-info ul li a {
+          color: #000;
+          text-decoration: none;
+      }
+      .site-navbar .extra-info h3 {
+          font-family: "Roboto", Arial, sans-serif;
+          text-transform: uppercase;
+          font-size: 14px;
+          letter-spacing: 0.2em;
+          color: #adb5bd;
+          margin-bottom: 20px;
+      }
+      .site-navbar .extra-info p {
+          color: #212529;
+      }
+      @media (max-width: 768px) {
+          .site-navbar {
+              min-height: 200px;
+          }
+          .site-navbar nav .menu li a {
+              font-size: 20px;
+              padding: 8px 12px;
+          }}
+.full-height {  
   height: 100vh;
   min-height: 700px; }
 

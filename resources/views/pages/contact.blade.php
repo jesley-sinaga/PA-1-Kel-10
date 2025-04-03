@@ -52,6 +52,7 @@
                         <li><a href="events">Events</a></li>
                         <li class="active"><a href="contact">Contact</a></li>
                         <li><a href="reservation">Reservation</a></li>
+                        <li><a href="login">Login</a></li>
                       </ul>
                     </div>
                   </div>

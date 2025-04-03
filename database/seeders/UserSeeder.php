@@ -10,20 +10,23 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        // Buat akun Manager (Admin)
-        User::create([
-            'name' => 'Admin Hotel',
-            'email' => 'admin@hotel.com',
-            'password' => Hash::make('Admin123!'),
-            'role' => 'manager',
-        ]);
+        // Cek apakah email sudah ada sebelum menambah data
+        if (!User::where('email', 'admin@hotel.com')->exists()) {
+            User::create([
+                'name' => 'Admin Hotel',
+                'email' => 'admin@hotel.com',
+                'password' => Hash::make('Admin123!'),
+                'role' => 'manager',
+            ]);
+        }
 
-        // Buat akun Resepsionis
-        User::create([
-            'name' => 'Resepsionis Hotel',
-            'email' => 'resepsionis@hotel.com',
-            'password' => Hash::make('Resepsionis123!'),
-            'role' => 'resepsionis',
-        ]);
+        if (!User::where('email', 'resepsionis@hotel.com')->exists()) {
+            User::create([
+                'name' => 'Resepsionis Hotel',
+                'email' => 'resepsionis@hotel.com',
+                'password' => Hash::make('Resepsionis123!'),
+                'role' => 'resepsionis',
+            ]);
+        }
     }
 }

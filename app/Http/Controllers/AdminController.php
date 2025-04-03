@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function managerDashboard()
+    public function dashboard()
     {
-        return view('dashboard.manager');
+        return view('admin.dashboard');
     }
 
-    public function resepsionis1Dashboard()
+    public function reservations()
     {
-        return view('dashboard.resepsionis1');
-    }
-
-    public function resepsionis2Dashboard()
-    {
-        return view('dashboard.resepsionis2');
+        return view('admin.reservations');
     }
 }

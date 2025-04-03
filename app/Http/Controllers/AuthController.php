@@ -54,36 +54,25 @@ class AuthController extends Controller
 
     // Proses Login
     public function login(Request $request)
-{
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required|min:6',
-    ]);
-
-    // Batasi percobaan login
-    if (session()->has('login_attempts') && session('login_attempts') >= 5) {
-        return back()->withErrors(['email' => 'Terlalu banyak percobaan login. Coba lagi nanti.']);
-    }
-
-    if (Auth::attempt($request->only('email', 'password'))) {
-        $user = Auth::user();
-
-        // Reset percobaan login jika berhasil
-        session()->forget('login_attempts');
-
-        // Redirect berdasarkan role
-        if ($user->role == 'manager' || $user->role == 'resepsionis') {
-            return redirect('/admin/dashboard');
-        } else {
-            return redirect('/');
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+    
+        if (Auth::attempt($request->only('email', 'password'))) {
+            $user = Auth::user();
+    
+            if ($user->role == 'manager' || $user->role == 'resepsionis') {
+                return redirect('/admin/index');
+            } else {
+                return redirect('/hotel/dashboard');
+            }
         }
+    
+        return back()->withErrors(['email' => 'Email atau password salah.']);
     }
-
-    // Tambahkan percobaan login
-    session()->increment('login_attempts', 1);
-
-    return back()->withErrors(['email' => 'Email atau password salah.']);
-}
+    
 public function logout(Request $request)
 {
     Auth::logout();
